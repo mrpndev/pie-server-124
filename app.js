@@ -17,7 +17,7 @@ const dbConnection = require("./db")
 
 app.use(Express.json())
 // Recognizes and handles incoming requests as JSON objects. It's a middleware that parsees JSON.
-
+app.use("/user", controllers.usercontroller)
 app.use("/pies", controllers.piecontroller)
 
 dbConnection.authenticate()
