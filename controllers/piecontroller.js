@@ -1,7 +1,6 @@
 // const Express = require("express")
 // const router = Express.Router()
 const router = require("express").Router()
-const { route } = require("express/lib/application")
 const { PieModel } = require("../models")
 
 router.get("/", async (req, res) => {
