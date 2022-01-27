@@ -6,6 +6,7 @@ const app = Express()
 
 const controllers = require("./controllers")
 const dbConnection = require("./db")
+const middleware = require("./middleware")
 
 /* 
     * First we create a variable to import express from node modules folder into our file using require() method.
@@ -17,8 +18,9 @@ const dbConnection = require("./db")
 
 app.use(Express.json())
 // Recognizes and handles incoming requests as JSON objects. It's a middleware that parsees JSON.
+app.use(middleware.CORS)
 app.use("/user", controllers.usercontroller)
-app.use("/pies", controllers.piecontroller)
+app.use("/pies", middleware.validateSession, controllers.piecontroller)
 
 dbConnection.authenticate()
     .then(() => dbConnection.sync())
