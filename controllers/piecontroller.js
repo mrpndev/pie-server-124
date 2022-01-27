@@ -2,7 +2,6 @@
 // const router = Express.Router()
 const router = require("express").Router()
 const { PieModel } = require("../models")
-const { validateSession } = require("../middleware")
 
 router.get("/", async (req, res) => {
     try {
